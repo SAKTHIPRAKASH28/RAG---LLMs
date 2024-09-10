@@ -4,3 +4,4 @@ azure-ai-inference
 mistralai
 fastapi
 uvicorn[standard]
+python-multipart
