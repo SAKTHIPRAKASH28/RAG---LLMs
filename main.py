@@ -4,7 +4,7 @@ from pdf_processor import read_pdf, preprocess_text, create_index, retrieve_cont
 from model_manager import generate_responses, close_clients
 import uuid
 import uvicorn
-
+import os
 app = FastAPI()
 
 # Middleware to allow CORS for frontend communication
