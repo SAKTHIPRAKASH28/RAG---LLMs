@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pdf_processor import read_pdf, preprocess_text, create_index, retrieve_context
 from model_manager import generate_responses, close_clients
 import uuid
+import uvicorn
 
 app = FastAPI()
 
@@ -83,3 +84,7 @@ async def close_session(session_id: str = Form(...)):
     del user_sessions[session_id]
 
     return {"message": "Session closed and resources cleaned up."}
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
